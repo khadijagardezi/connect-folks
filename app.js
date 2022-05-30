@@ -18,21 +18,21 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.get("/api/get-turn-credentials", (req, res) => {
-  const AccountSid = process.env.ACCOUNT_SID;
-  console.log(AccountSid);
-  const AuthToken = process.env.AUTH_TOKEN;
-  console.log(AuthToken);
-  const client = twilio(AccountSid, AuthToken);
+// app.get("/api/get-turn-credentials", (req, res) => {
+//   const AccountSid = process.env.ACCOUNT_SID;
+//   console.log(AccountSid);
+//   const AuthToken = process.env.AUTH_TOKEN;
+//   console.log(AuthToken);
+//   const client = twilio(AccountSid, AuthToken);
 
-  client.tokens
-    .create()
-    .then((token) => res.send({ token }))
-    .catch((err) => {
-      console.log(err);
-      res.send({ message: "fail turn credicentials", err });
-    });
-});
+//   client.tokens
+//     .create()
+//     .then((token) => res.send({ token }))
+//     .catch((err) => {
+//       console.log(err);
+//       res.send({ message: "fail turn credicentials", err });
+//     });
+// });
 
 let connectedPeers = []; // array
 let connectedPeersStrangers = [];
