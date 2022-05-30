@@ -6,11 +6,19 @@ import * as ui from "./ui.js";
 import * as recordingUtils from "./recordingUtils.js";
 import * as strangerUtils from "./strangerUtils.js";
 
+const getTurnSeversCredentails = async () => {
+  const resData = await axios.get("/api/get-turn-credentials");
+  console.log("main ->", resData.data.token.iceServers);
+  webRTCHandler.setTurnSevers(resData.data.token.iceServers);
+};
+
 // initialization of socketIO connection
 const socket = io("/");
 wss.registerSocketEvents(socket);
 
-webRTCHandler.getLocalPreview();
+getTurnSeversCredentails().then(() => {
+  webRTCHandler.getLocalPreview();
+});
 
 //register event listener for personal code copy button
 const personalCodeCopyButton = document.getElementById(
