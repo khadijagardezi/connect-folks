@@ -129,6 +129,6 @@ io.on("connection", (socket) => {
 //   console.log(`listening on ${PORT}`);
 // });
 
-server.listen(3000, () => {
-  // console.log(`listening on ${PORT}`);
+server.listen(PORT, () => {
+  console.log(`listening on ${PORT}`);
 });
