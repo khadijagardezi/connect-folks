@@ -6,10 +6,10 @@ import * as store from "./store.js";
 let connectedUserDetails;
 let peerConection;
 let dataChannel;
-let turnSevers = [];
+let turnServers = [];
 
-export const setTurnSevers = (servers) => {
-  turnSevers = servers;
+export const setTURNSevers = (servers) => {
+  turnServers = servers;
 };
 
 const defaultConstraints = {
@@ -42,7 +42,7 @@ export const getLocalPreview = () => {
 
 const createPeerConnection = () => {
   const configuration = {
-    iceServers: [...turnSevers, { url: "stun:stun.12connect.com:3478" }],
+    iceServers: [...turnServers, { url: "stun:stun.1und1.de.3478" }],
     iceTransportPolicy: "relay",
   };
   peerConection = new RTCPeerConnection(configuration);
