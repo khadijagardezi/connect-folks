@@ -2,7 +2,7 @@
 
 ### From communicating to connecting with people!
 
-[![N|Solid]()
+![ScreenShot](connect-folks.png)
 
 Connect Folks is a web-based calling application, a person can share a personal-code to someone who he wants to chat or video-call.
 
