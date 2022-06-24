@@ -81,11 +81,19 @@ checkbox.addEventListener("click", () => {
 // event listeners for video call buttons
 
 const micButton = document.getElementById("mic_button");
+
 micButton.addEventListener("click", () => {
+  // let removeMuted = document.getElementsByClassName("remote_video");
+  // let localMutedRemoved = document.getElementsByClassName("local_video");
+  // localMutedRemoved.remove;
+  // removeMuted.removeAttribute("muted");
   const localStream = store.getState().localStream;
   const micEnabled = localStream.getAudioTracks()[0].enabled;
+  console.log(micEnabled);
   localStream.getAudioTracks()[0].enabled = !micEnabled;
   ui.updateMicButton(micEnabled);
+  let localMutedRemoved = document.getElementsByClassName("local_video");
+  localMutedRemoved.muted = !localMutedRemoved.muted;
 });
 
 const cameraButton = document.getElementById("camera_button");

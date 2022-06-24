@@ -29,7 +29,11 @@ export const getLocalPreview = () => {
   navigator.mediaDevices
     .getUserMedia(defaultConstraints)
     .then((stream) => {
+      console.log(stream);
       ui.updateLocalVideo(stream);
+      console.log(stream.getAudioTracks(), "webrtc");
+      stream.getAudioTracks();
+
       ui.showVideoCallButtons();
       store.setCallState(constants.callState.CALL_AVAILABLE);
       store.setLocalStream(stream);
@@ -97,6 +101,8 @@ const createPeerConnection = () => {
 
     for (const track of localStream.getTracks()) {
       peerConection.addTrack(track, localStream);
+      console.log(track, "track");
+      // console.log(peerConection.addTrack(track, localStream), "ss");
     }
   }
 };

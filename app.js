@@ -1,28 +1,31 @@
 require("dotenv").config();
 
 const express = require("express");
-const http = require("http");
+const http = require("http"); //for creating http server
 const twilio = require("twilio");
-// console.log(process.env.AUTH_TOKEN);
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+//Initialize http server and associate it with express
 const server = http.createServer(app);
 
+//For signalling in WebRTC -- //Initialize socket.io
 const io = require("socket.io")(server);
 
+//Define the folder which contains the CSS and JS
 app.use(express.static("public"));
 
+//Define a route
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
 app.get("/api/get-turn-credentials", (req, res) => {
   const AccountSid = process.env.ACCOUNT_SID;
-  console.log(AccountSid);
+  // console.log(AccountSid);
   const AuthToken = process.env.AUTH_TOKEN;
-  console.log(AuthToken);
+  // console.log(AuthToken);
   const client = twilio(AccountSid, AuthToken);
 
   client.tokens
@@ -37,8 +40,12 @@ app.get("/api/get-turn-credentials", (req, res) => {
 let connectedPeers = []; // array
 let connectedPeersStrangers = [];
 
+//Implementing Socket.io
+//connection is a synonym of reserved event connect
+//connection event is fired as soon as a client connects to this socket.
+
 io.on("connection", (socket) => {
-  console.log(socket.id);
+  // console.log(socket.id);
   connectedPeers.push(socket.id);
 
   socket.on("pre-offer", (data) => {
@@ -144,10 +151,6 @@ io.on("connection", (socket) => {
     connectedPeersStrangers = newConnectedPeersStrangers;
   });
 });
-
-// server.listen(PORT, () => {
-//   console.log(`listening on ${PORT}`);
-// });
 
 server.listen(PORT, () => {
   console.log(`listening on ${PORT}`);

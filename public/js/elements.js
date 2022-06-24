@@ -16,7 +16,7 @@ export const getIncomingCallDialog = (
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("dialog_image_container");
   const image = document.createElement("img");
-  const avatarImagePath = "./utils/img/Avatar.png";
+  const avatarImagePath = "./utils/images/Avatar.png";
   image.src = avatarImagePath;
   imageContainer.appendChild(image);
 
@@ -70,7 +70,7 @@ export const getCallingDialog = (rejectCallHandler) => {
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("dialog_image_container");
   const image = document.createElement("img");
-  const avatarImagePath = "./utils/img/Avatar.png";
+  const avatarImagePath = "./utils/images/Avatar.png";
   image.src = avatarImagePath;
   imageContainer.appendChild(image);
 
@@ -111,7 +111,7 @@ export const getInfoDialog = (dialogTitle, dialogDescription) => {
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("dialog_image_container");
   const image = document.createElement("img");
-  const avatarImagePath = "./utils/img/Avatar.png";
+  const avatarImagePath = "./utils/images/Avatar.png";
   image.src = avatarImagePath;
   imageContainer.appendChild(image);
 
