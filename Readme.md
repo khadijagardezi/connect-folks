@@ -4,7 +4,9 @@
 
 ![ScreenShot](connect-folks.png)
 
-Connect Folks is a web-based calling application, a person can share a personal-code to someone who he wants to chat or video-call.
+Gone are the days of struggling with complicated video conferencing software or worrying about the compatibility of different devices. With Connect Folks, you can simply share your unique code with anyone and start a conversation within minutes. Whether you are looking to catch up with an old friend, collaborate with a colleague, or hold a virtual meeting, Connect Folks has got you covered.
+
+With its easy-to-use platform and reliable functionality, you can enjoy seamless video calls and chats with anyone, anywhere, and at any time.
 
 ## Features
 
